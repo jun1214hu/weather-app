@@ -3,6 +3,8 @@ const axios = require('axios');
 const app = express();
 const apiKey = '828dcbc6894858597d0682787b4fffe9';
 
+const PORT = process.env.PORT || 3001;
+
 app.use(express.json());
 
 app.post('/weather', async (req, res) => {
@@ -28,6 +30,6 @@ app.post('/weather', async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log('Server is running on port 3001');
 });

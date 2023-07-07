@@ -10,7 +10,7 @@ const Weather = () => {
     event.preventDefault();
 
     try {
-      const weatherRes = await axios.post('/weather', { city });
+      const weatherRes = await axios.post('https://intense-reaches-10245-5ab56b1229bf.herokuapp.com/weather', { city });
       setWeather(weatherRes.data);
       setError(null);
     } catch (error) {
