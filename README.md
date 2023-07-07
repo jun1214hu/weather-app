@@ -16,7 +16,7 @@ This application was made using React (create-react-app), Nodejs, Express, and A
 
 
 ### Deliverable
-![](https://github.com/weather-app/weatherwatcher.gif)
+![](https://github.com/jun1214hu/weather-app/blob/main/weatherwatcher.gif)
 - [Weather Watcher](https://weather-watcher-d0e7e9df7bae.herokuapp.com/)
 - [Github Repo](https://github.com/jun1214hu/weather-app/)
 
