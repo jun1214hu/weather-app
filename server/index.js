@@ -1,8 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const apiKey = '828dcbc6894858597d0682787b4fffe9';
 
+const apiKey = process.env.REACT_APP_API_KEY;
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
@@ -10,13 +10,13 @@ app.post('/weather', async (req, res) => {
   const { city } = req.body;
 
   try {
-    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&appid=${apiKey}`;
+    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
     const geoRes = await axios.get(geoUrl);
 
     if (geoRes.data.length > 0) {
       const lat = geoRes.data[0].lat;
       const lon = geoRes.data[0].lon;
-      const weatherUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+      const weatherUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
       const weatherRes = await axios.get(weatherUrl);
 
       res.json(weatherRes.data);
@@ -30,5 +30,5 @@ app.post('/weather', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is running on port 3001');
+  console.log(`Server is running on port ${port}`);
 });
