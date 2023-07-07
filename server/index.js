@@ -4,7 +4,7 @@ const app = express();
 const apiKey = '828dcbc6894858597d0682787b4fffe9';
 
 app.use(express.json());
-
+const port = process.env.PORT || 3001;
 app.post('/weather', async (req, res) => {
   const { city } = req.body;
 
@@ -28,6 +28,6 @@ app.post('/weather', async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log('Server is running on port 3001');
 });
