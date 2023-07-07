@@ -9,7 +9,7 @@ app.post('/weather', async (req, res) => {
   const { city } = req.body;
 
   try {
-    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&appid=${apiKey}`;
     const geoRes = await axios.get(geoUrl);
 
     if (geoRes.data.length > 0) {
