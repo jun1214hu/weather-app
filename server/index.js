@@ -3,8 +3,9 @@ const axios = require('axios');
 const app = express();
 const apiKey = '828dcbc6894858597d0682787b4fffe9';
 
-app.use(express.json());
 const port = process.env.PORT || 3001;
+
+app.use(express.json());
 app.post('/weather', async (req, res) => {
   const { city } = req.body;
 
