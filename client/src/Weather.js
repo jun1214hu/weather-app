@@ -47,12 +47,14 @@ const Weather = () => {
         </button>
       </form>
 
+      {/* only show weather if it exists (user submitted) */}
       {weather && !error && 
         <div>
+            {/* there was little guidance on necessary info but this would be minimum of user needs */}
             <div className="mt-4 text-2xl">{weather.timezone}</div>
-            <div className="mt-2 text-xl">Current Temperature: {weather.current.temp}</div>
+            <div className="mt-2 text-xl">Current Temperature: {weather.current.temp} F</div>
             <div className="mt-2 text-xl">Weather: {weather.current.weather[0].description}</div>
-            <div className="mt-2 text-xl ">Feels like: {weather.current.feels_like}</div>
+            <div className="mt-2 text-xl ">Feels like: {weather.current.feels_like} F</div>
         </div>
       }
       {error && <p>{error}</p>}
